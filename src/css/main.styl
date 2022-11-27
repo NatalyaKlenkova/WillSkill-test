@@ -1,0 +1,338 @@
+@font-face
+	font-family 'Rubik'
+	src local('Rubik-Regular'), url('../fonts/Rubik-Regular.woff2') format('woff2'), url('../fonts/Rubik-Regular.woff') format('woff')
+	font-weight 400
+	font-style normal
+	font-display swap
+
+@font-face
+	font-family 'Rubik'
+	src local('Rubik-Bold'), url('../fonts/Rubik-Bold.woff2') format('woff2'), url('../fonts/Rubik-Bold.woff') format('woff')
+	font-weight 700
+	font-style normal
+	font-display swap
+
+
+$white = #fff
+$black = #000
+$gray = #adadad
+$yellow = #ffee00
+$dark-yellow = #fcda28
+$orange = #fcb500
+$gradient1 = linear-gradient(306.68deg, #F24500 -0.6%, #F28000 21.78%, #F2C900 51.42%, #F2E600 65.18%)
+
+text(fzValue, lhValue){
+	font-size fzValue px
+    line-height lhValue px
+}
+
+tr(value){
+	transition value 0.3s ease-in-out
+}
+	
+
+html
+	box-sizing border-box
+	overflow-x hidden
+
+*,
+*::after,
+*::before
+	box-sizing inherit
+
+body
+	min-width 320px
+	background-color $black
+	font-family 'Rubik', sans-serif
+	font-weight 400
+	color $white
+	overflow-x hidden
+
+img
+	max-width 100%
+
+a
+	color red
+	text-decoration none
+
+/*!
+ * Global
+ */
+
+.container
+	width 100%
+	max-width 1920px
+	margin 0 auto
+	padding 0 160px
+
+.stop-scroll
+	overflow hidden
+
+.list-reset
+	list-style none
+	padding 0
+	margin 0
+
+.btn-reset
+	background-color transparent
+	padding 0
+	border none
+	cursor pointer
+	
+.btn
+	text(18, 21)
+	color $black
+	background-color $orange
+	padding 17px 55px
+	border-radius 7px
+	tr(background-color)
+	&:focus
+		outline none
+		background-color $dark-yellow
+	&:hover 
+		background-color $dark-yellow
+	&:active
+		background-color $orange
+
+.link
+	tr(color)
+	&:focus
+		outline none
+		color $dark-yellow
+	&:hover 
+		color $yellow
+	&:active
+		color $orange
+
+/*!
+ * Header
+ */
+.header
+	padding-top 22px
+	padding-bottom 21px
+	&__container
+		display flex
+		align-items center
+	&__logo
+		margin-right auto
+		&:focus
+			outline none
+	&__phone
+		text(18, 24)
+		color $white
+		margin-right 107px
+
+.burger
+	display none
+	position relative
+	width 37px
+	height 37px
+	tr(background-color)
+	&__line
+		position absolute
+		top 47%
+		width 37px
+		height 2px
+		background-color $white
+		tr(background-color)
+		&:first-child
+			top 10%
+		&:last-child
+			top 85%
+	&:focus .burger__line
+		outline none
+		background-color $orange
+	&:hover .burger__line
+		background-color $yellow
+	&:active .burger__line
+		background-color $orange
+
+.menu
+	&__close-btn
+		display none
+	&__close-icon
+		width 20px
+		height 20px
+		fill $white
+		tr(fill)
+		&:focus
+			outline none
+			fill $orange
+		&:hover
+			fill $yellow
+		&:active
+			fill $orange
+.nav
+	&__list
+		display flex
+		margin-right 65px
+	&__item
+		&:not(:last-child)
+			margin-right 45px
+	&__link 
+		text(18,24)
+		color $white
+
+.cart
+	position relative
+	width 37px
+	height 37px
+	&:focus
+		outline none
+
+	&__icon 
+		width 32px
+		height 32px
+		fill $white
+	&__label
+		position absolute
+		bottom -1px
+		right -1px	
+		&-bg 
+			display flex
+			justify-content center
+			align-items center
+			width 16px
+			height 16px
+			background-color $orange
+			border-radius 200px
+		&-number 
+			font-weight 400
+			text(12,24)
+			color $black	
+
+/*!
+ * Hero
+ */
+
+.hero	
+	background-color $dark-yellow
+	background-image url('../img/hero-bg.svg')
+	background-repeat no-repeat
+	background-size cover
+
+	&__container
+		padding-top 104px
+		padding-bottom 95px
+		position relative
+	&__bg
+		position absolute
+		width 100%
+		height 109%
+		right 90px
+		bottom -85px
+		background-image url('../img/hero-bg-image.png')
+		background-repeat no-repeat
+		background-position right bottom
+		background-size auto 115%
+	&__content
+		position relative
+		z-index 10
+	&__title
+		font-weight 700
+		text(144, 152)
+		color $white
+		margin 0
+		margin-bottom 31px
+	&__descr
+		width 50%
+		text(24, 28)
+		color $black
+		margin 0
+		margin-bottom 109px
+	&__subtitle
+		font-weight 700
+		text(36, 43)
+		color $black
+		margin 0
+		margin-bottom 8px
+	&__advantage
+		width 33%
+		text(18, 21)
+		color $black
+		margin 0
+
+/*!
+ * Order
+ */
+
+.order
+	padding-top 112px
+	padding-bottom 112px
+	&__container
+		display flex
+		flex-direction column
+		align-items center
+		justify-content center
+	&__title
+		width 62%
+		font-weight 700
+		text(48, 57)
+		text-align center
+		margin 0
+		margin-bottom 84px
+		padding 0
+
+		&-accent
+			color $orange
+	&__content
+		width 83%
+		margin-bottom 66px
+	&__price 
+		display flex
+		justify-content center
+		align-items center
+		margin-bottom 58px
+
+		&-full
+			position relative
+			z-index -1
+			text(36, 43)
+			min-width 112px
+			color $gray
+			margin-right 19px
+
+			&::after
+				content ""
+				position absolute
+				z-index 100
+				top 50%
+				left -12px
+				height 2px
+				min-width 112px
+				background-color $gray
+		&-discount
+			text(48, 40)
+	&__list
+		display flex
+		justify-content space-between
+		width 100%
+	&__item
+		&.order__item-ginger
+			background-image url('../img/ginger.png')
+			background-size auto 160px
+		&.order__item-nootris
+			background-image url('../img/nootris.png')
+			min-width 44.16%
+			padding-top 203px
+		&-virus
+			background-image url('../img/virus.png')
+
+		display flex
+		flex-direction column
+		align-items center
+		min-width 17.75%
+		background-repeat no-repeat
+		background-position top center
+		padding-top 240px
+	&__text
+		text(18, 21)
+	&__accent
+		text(18, 21)
+		color $orange
+	&__text-nootris
+		text(36, 43)
+		margin-bottom 9px
+	&__accent-nootris
+		text(24, 28)
+	

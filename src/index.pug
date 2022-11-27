@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+html(lang="ru")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		title Nootris
+		link(rel="stylesheet", href="./css/normalize.css")
+		link(rel="stylesheet", href="./css/main.css")
+	body
+		svg(viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink', style="display:none")
+			svg#basket(fill='inherit' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg')
+				g(clip-path='url(#aa)')
+					path(d='M32 12h-5.434l-5.708-9.515a1 1 0 0 0-1.715 1.03L24.233 12H7.767l5.091-8.485a1 1 0 1 0-1.714-1.03L5.433 12H0v2h2.17l2.54 13.552A3.001 3.001 0 0 0 7.66 30h16.68a3 3 0 0 0 2.948-2.447L29.83 14H32v-2Zm-6.678 15.185a.999.999 0 0 1-.982.815H7.66a1 1 0 0 1-.983-.816L4.205 14h23.59l-2.473 13.185Z' fill='inherit')
+				defs
+					clippath#aa
+						path(fill='#inherit' d='M0 0h32v32H0z')
+			svg#close(fill='inherit' viewBox='0 0 23 23' xmlns='http://www.w3.org/2000/svg')
+				path(fill='inherit' d='M2.094 0 23 20.907l-2.09 2.091L.002 2.091z')
+				path(fill='inherit' d='M0 20.907 20.907 0l2.09 2.09L2.091 22.999z')
+		header.header
+			- var navItems = [{title: 'FAQ'}, {title: 'Оплата и доставка'}, {title: 'Возврат'}, {title: 'Исследования'}, {title: 'Личный кабинет'}]
+			.container.header__container
+				.header__burger.burger 
+					span.burger__line
+					span.burger__line
+					span.burger__line
+				a.header__logo(href="#")
+					img(src="./img/logo.svg", alt="Логотип Nootris")
+				.header__menu.menu
+					button.menu__close-btn.btn-reset
+						svg.menu__close-icon
+							use(xlink:href="#close")
+					nav.menu__nav.nav
+						ul.nav__list.list-reset
+							each navItem in navItems
+								li.nav__item
+									a.nav__link.link(href="#")= navItem.title
+
+				a.header__phone.link(href="tel:88006000990") 8 (800) 600-09-90
+				a.header__cart.cart(href="") 
+					svg.cart__icon
+						use(xlink:href='#basket')
+					.cart__label
+						.cart__label-bg
+							.cart__label-number 1
+
+		main.main
+			section.hero
+				.container.hero__container
+					.hero__bg
+					.hero__content
+						h1.hero__title АКТИВИРУЙ ИММУНИТЕТ!
+						p.hero__descr Всего пять секунд в&nbsp;день помогут укрепить иммунитет и&nbsp;повысить защитные силы организма
+						h3.hero__subtitle NOOTRIS ПОМОГАЕТ
+						p.hero__advantage Вашему организму во&nbsp;время пандемии и&nbsp;сезонных простуд
+
+			section.order#order
+				.container.order__container
+					h2.order__title ПОЛУЧИ ЗАЩИТУ ИММУНИТЕТА 
+						span.order__title-accent СО&nbsp;СКИДКОЙ -15% ПЕРВЫМ!
+					.order__content
+						.order__price 
+							div.order__price-full 750₽
+							span.order__price-discount 690₽
+						ul.order__list.list-reset 
+							li.order__item.order__item-ginger
+								span.order__text Содержит
+								span.order__accent имбирь
+							li.order__item.order__item-nootris
+								span.order__text.order__text-nootris + Бесплатная доставка
+								span.order__accent.order__accent-nootris Специальная цена
+							li.order__item.order__item-virus
+								span.order__text Нейтрализует
+								span.order__accent вирусы
+					button.order__btn.btn.btn-reset Оформить заказ!
+
+		footer.footer
+
+		//- Scripts
+		script(src="./js/app.js")
